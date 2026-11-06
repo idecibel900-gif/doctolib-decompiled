@@ -1,0 +1,377 @@
+package com.facebook.imagepipeline.image;
+
+import android.graphics.ColorSpace;
+import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.Supplier;
+import com.facebook.common.memory.PooledByteBuffer;
+import com.facebook.common.memory.PooledByteBufferInputStream;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.imageformat.DefaultImageFormats;
+import com.facebook.imageformat.ImageFormat;
+import com.facebook.imageformat.ImageFormatChecker;
+import com.facebook.imagepipeline.common.BytesRange;
+import com.facebook.imageutils.BitmapUtil;
+import com.facebook.imageutils.HeifExifUtil;
+import com.facebook.imageutils.ImageMetaData;
+import com.facebook.imageutils.JfifUtil;
+import com.facebook.imageutils.WebpUtil;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import kotlin.Pair;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class EncodedImage implements Closeable {
+    private static boolean sUseCachedMetadata;
+    private BytesRange mBytesRange;
+    private ColorSpace mColorSpace;
+    private int mExifOrientation;
+    private boolean mHasParsedMetadata;
+    private int mHeight;
+    private ImageFormat mImageFormat;
+    private final Supplier mInputStreamSupplier;
+    private final CloseableReference mPooledByteBufferRef;
+    private int mRotationAngle;
+    private int mSampleSize;
+    private String mSource;
+    private int mStreamSize;
+    private int mWidth;
+
+    public EncodedImage(CloseableReference closeableReference) {
+        this.mImageFormat = ImageFormat.UNKNOWN;
+        this.mRotationAngle = -1;
+        this.mExifOrientation = 0;
+        this.mWidth = -1;
+        this.mHeight = -1;
+        this.mSampleSize = 1;
+        this.mStreamSize = -1;
+        Preconditions.checkArgument(Boolean.valueOf(CloseableReference.isValid(closeableReference)));
+        this.mPooledByteBufferRef = closeableReference.m3216clone();
+        this.mInputStreamSupplier = null;
+    }
+
+    public EncodedImage(Supplier supplier) {
+        this.mImageFormat = ImageFormat.UNKNOWN;
+        this.mRotationAngle = -1;
+        this.mExifOrientation = 0;
+        this.mWidth = -1;
+        this.mHeight = -1;
+        this.mSampleSize = 1;
+        this.mStreamSize = -1;
+        Preconditions.checkNotNull(supplier);
+        this.mPooledByteBufferRef = null;
+        this.mInputStreamSupplier = supplier;
+    }
+
+    public EncodedImage(Supplier supplier, int i) {
+        this(supplier);
+        this.mStreamSize = i;
+    }
+
+    public static EncodedImage cloneOrNull(EncodedImage encodedImage) {
+        if (encodedImage != null) {
+            return encodedImage.cloneOrNull();
+        }
+        return null;
+    }
+
+    public EncodedImage cloneOrNull() {
+        EncodedImage encodedImage;
+        Supplier supplier = this.mInputStreamSupplier;
+        if (supplier != null) {
+            encodedImage = new EncodedImage(supplier, this.mStreamSize);
+        } else {
+            CloseableReference closeableReferenceCloneOrNull = CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
+            if (closeableReferenceCloneOrNull == null) {
+                encodedImage = null;
+            } else {
+                try {
+                    encodedImage = new EncodedImage(closeableReferenceCloneOrNull);
+                } catch (Throwable th) {
+                    CloseableReference.closeSafely(closeableReferenceCloneOrNull);
+                    throw th;
+                }
+            }
+            CloseableReference.closeSafely(closeableReferenceCloneOrNull);
+        }
+        if (encodedImage != null) {
+            encodedImage.copyMetaDataFrom(this);
+        }
+        return encodedImage;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        CloseableReference.closeSafely(this.mPooledByteBufferRef);
+    }
+
+    public synchronized boolean isValid() {
+        return CloseableReference.isValid(this.mPooledByteBufferRef) || this.mInputStreamSupplier != null;
+    }
+
+    public CloseableReference getByteBufferRef() {
+        return CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
+    }
+
+    public InputStream getInputStream() {
+        Supplier supplier = this.mInputStreamSupplier;
+        if (supplier != null) {
+            return (InputStream) supplier.get();
+        }
+        CloseableReference closeableReferenceCloneOrNull = CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
+        if (closeableReferenceCloneOrNull == null) {
+            return null;
+        }
+        try {
+            return new PooledByteBufferInputStream((PooledByteBuffer) closeableReferenceCloneOrNull.get());
+        } finally {
+            CloseableReference.closeSafely(closeableReferenceCloneOrNull);
+        }
+    }
+
+    public InputStream getInputStreamOrThrow() {
+        return (InputStream) Preconditions.checkNotNull(getInputStream());
+    }
+
+    public void setImageFormat(ImageFormat imageFormat) {
+        this.mImageFormat = imageFormat;
+    }
+
+    public void setHeight(int i) {
+        this.mHeight = i;
+    }
+
+    public void setWidth(int i) {
+        this.mWidth = i;
+    }
+
+    public void setRotationAngle(int i) {
+        this.mRotationAngle = i;
+    }
+
+    public void setExifOrientation(int i) {
+        this.mExifOrientation = i;
+    }
+
+    public void setSampleSize(int i) {
+        this.mSampleSize = i;
+    }
+
+    public void setBytesRange(BytesRange bytesRange) {
+        this.mBytesRange = bytesRange;
+    }
+
+    public void setSource(String str) {
+        this.mSource = str;
+    }
+
+    public String getSource() {
+        return this.mSource;
+    }
+
+    public ImageFormat getImageFormat() {
+        parseMetadataIfNeeded();
+        return this.mImageFormat;
+    }
+
+    public int getRotationAngle() {
+        parseMetadataIfNeeded();
+        return this.mRotationAngle;
+    }
+
+    public int getExifOrientation() {
+        parseMetadataIfNeeded();
+        return this.mExifOrientation;
+    }
+
+    public int getWidth() {
+        parseMetadataIfNeeded();
+        return this.mWidth;
+    }
+
+    public int getHeight() {
+        parseMetadataIfNeeded();
+        return this.mHeight;
+    }
+
+    public ColorSpace getColorSpace() {
+        parseMetadataIfNeeded();
+        return this.mColorSpace;
+    }
+
+    public int getSampleSize() {
+        return this.mSampleSize;
+    }
+
+    public BytesRange getBytesRange() {
+        return this.mBytesRange;
+    }
+
+    public boolean isCompleteAt(int i) {
+        ImageFormat imageFormat = this.mImageFormat;
+        if ((imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.DNG) || this.mInputStreamSupplier != null) {
+            return true;
+        }
+        Preconditions.checkNotNull(this.mPooledByteBufferRef);
+        PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) this.mPooledByteBufferRef.get();
+        return i >= 2 && pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
+    }
+
+    public int getSize() {
+        CloseableReference closeableReference = this.mPooledByteBufferRef;
+        if (closeableReference != null && closeableReference.get() != null) {
+            return ((PooledByteBuffer) this.mPooledByteBufferRef.get()).size();
+        }
+        return this.mStreamSize;
+    }
+
+    public String getFirstBytesAsHexString(int i) {
+        CloseableReference byteBufferRef = getByteBufferRef();
+        if (byteBufferRef == null) {
+            return "";
+        }
+        int iMin = Math.min(getSize(), i);
+        byte[] bArr = new byte[iMin];
+        try {
+            PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) byteBufferRef.get();
+            if (pooledByteBuffer != null) {
+                pooledByteBuffer.read(0, bArr, 0, iMin);
+                byteBufferRef.close();
+                StringBuilder sb = new StringBuilder(iMin * 2);
+                for (int i2 = 0; i2 < iMin; i2++) {
+                    sb.append(String.format("%02X", Byte.valueOf(bArr[i2])));
+                }
+                return sb.toString();
+            }
+            byteBufferRef.close();
+            return "";
+        } catch (Throwable th) {
+            byteBufferRef.close();
+            throw th;
+        }
+    }
+
+    private void parseMetadataIfNeeded() {
+        if (this.mWidth < 0 || this.mHeight < 0) {
+            parseMetaData();
+        }
+    }
+
+    public void parseMetaData() {
+        if (!sUseCachedMetadata) {
+            internalParseMetaData();
+        } else {
+            if (this.mHasParsedMetadata) {
+                return;
+            }
+            internalParseMetaData();
+            this.mHasParsedMetadata = true;
+        }
+    }
+
+    private void internalParseMetaData() {
+        Pair<Integer, Integer> dimensions;
+        ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(getInputStream());
+        this.mImageFormat = imageFormat_WrapIOException;
+        if (DefaultImageFormats.isWebpFormat(imageFormat_WrapIOException)) {
+            dimensions = readWebPImageSize();
+        } else {
+            dimensions = readImageMetaData().getDimensions();
+        }
+        if (imageFormat_WrapIOException == DefaultImageFormats.JPEG && this.mRotationAngle == -1) {
+            if (dimensions != null) {
+                int orientation = JfifUtil.getOrientation(getInputStream());
+                this.mExifOrientation = orientation;
+                this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation);
+                return;
+            }
+            return;
+        }
+        if (imageFormat_WrapIOException == DefaultImageFormats.HEIF && this.mRotationAngle == -1) {
+            int orientation2 = HeifExifUtil.getOrientation(getInputStream());
+            this.mExifOrientation = orientation2;
+            this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation2);
+        } else if (this.mRotationAngle == -1) {
+            this.mRotationAngle = 0;
+        }
+    }
+
+    private Pair readWebPImageSize() {
+        InputStream inputStream = getInputStream();
+        if (inputStream == null) {
+            return null;
+        }
+        Pair<Integer, Integer> size = WebpUtil.getSize(inputStream);
+        if (size != null) {
+            this.mWidth = ((Integer) size.getFirst()).intValue();
+            this.mHeight = ((Integer) size.getSecond()).intValue();
+        }
+        return size;
+    }
+
+    private ImageMetaData readImageMetaData() throws Throwable {
+        InputStream inputStream;
+        try {
+            inputStream = getInputStream();
+            try {
+                ImageMetaData imageMetaDataDecodeDimensionsAndColorSpace = BitmapUtil.decodeDimensionsAndColorSpace(inputStream);
+                this.mColorSpace = imageMetaDataDecodeDimensionsAndColorSpace.getColorSpace();
+                Pair<Integer, Integer> dimensions = imageMetaDataDecodeDimensionsAndColorSpace.getDimensions();
+                if (dimensions != null) {
+                    this.mWidth = ((Integer) dimensions.getFirst()).intValue();
+                    this.mHeight = ((Integer) dimensions.getSecond()).intValue();
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException unused) {
+                    }
+                }
+                return imageMetaDataDecodeDimensionsAndColorSpace;
+            } catch (Throwable th) {
+                th = th;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException unused2) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream = null;
+        }
+    }
+
+    public void copyMetaDataFrom(EncodedImage encodedImage) {
+        this.mImageFormat = encodedImage.getImageFormat();
+        this.mWidth = encodedImage.getWidth();
+        this.mHeight = encodedImage.getHeight();
+        this.mRotationAngle = encodedImage.getRotationAngle();
+        this.mExifOrientation = encodedImage.getExifOrientation();
+        this.mSampleSize = encodedImage.getSampleSize();
+        this.mStreamSize = encodedImage.getSize();
+        this.mBytesRange = encodedImage.getBytesRange();
+        this.mColorSpace = encodedImage.getColorSpace();
+        this.mHasParsedMetadata = encodedImage.hasParsedMetaData();
+    }
+
+    public static boolean isMetaDataAvailable(EncodedImage encodedImage) {
+        return encodedImage.mRotationAngle >= 0 && encodedImage.mWidth >= 0 && encodedImage.mHeight >= 0;
+    }
+
+    public static void closeSafely(EncodedImage encodedImage) {
+        if (encodedImage != null) {
+            encodedImage.close();
+        }
+    }
+
+    public static boolean isValid(EncodedImage encodedImage) {
+        return encodedImage != null && encodedImage.isValid();
+    }
+
+    protected boolean hasParsedMetaData() {
+        return this.mHasParsedMetadata;
+    }
+}

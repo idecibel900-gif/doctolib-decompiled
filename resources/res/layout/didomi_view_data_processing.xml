@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingBottom="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/image_data_processing"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/didomi_bullet_point"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/text_data_processing_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/image_data_processing"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_data_processing"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/DidomiDataProcessingLabel"/>
+    <TextView
+        android:id="@+id/text_data_processing_retention_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/text_data_processing_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_data_processing_label"
+        style="@style/didomiDataProcessingRetentionTime"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

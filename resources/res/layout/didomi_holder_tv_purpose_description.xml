@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="12sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/didomi_tv_purposes_text_margin_right"
+    android:layout_marginBottom="@dimen/didomi_tv_purposes_text_margin_bottom"
+    android:alpha="0.8"
+    android:layout_marginEnd="@dimen/didomi_tv_purposes_text_margin_right"
+    style="@style/DidomiTVTextSmall"/>

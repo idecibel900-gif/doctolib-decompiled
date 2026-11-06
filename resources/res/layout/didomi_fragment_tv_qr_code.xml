@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_ctv_qr_code"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/didomi_view_tv_secondary_background"/>
+    <TextView
+        android:id="@+id/text_ctv_qr_code_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/didomi_tv_slider_text_margin_left"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="@dimen/didomi_tv_slider_text_margin_right"
+        android:includeFontPadding="false"
+        android:layout_marginStart="@dimen/didomi_tv_slider_text_margin_left"
+        android:layout_marginEnd="@dimen/didomi_tv_slider_text_margin_right"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/DidomiTVTextHeadingLarge"/>
+    <TextView
+        android:id="@+id/text_ctv_qr_code_subtitle"
+        android:background="@android:color/transparent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:alpha="0.8"
+        app:layout_constraintEnd_toEndOf="@+id/text_ctv_qr_code_title"
+        app:layout_constraintStart_toStartOf="@+id/text_ctv_qr_code_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_ctv_qr_code_title"
+        style="@style/DidomiTVTextLarge"/>
+    <ImageView
+        android:id="@+id/image_ctv_qr_code"
+        android:layout_width="@dimen/didomi_tv_preferences_qr_code_size"
+        android:layout_height="@dimen/didomi_tv_preferences_qr_code_size"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/text_ctv_qr_code_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/text_ctv_qr_code_subtitle"
+        style="@style/DidomiTVTextLarge"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

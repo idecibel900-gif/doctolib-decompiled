@@ -1,0 +1,70 @@
+package androidx.core.view;
+
+import android.os.Build;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import com.facebook.react.fabric.mounting.mountitems.IntBufferBatchMountItem;
+import java.util.Objects;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class WindowCompat {
+    public static void setDecorFitsSystemWindows(Window window, boolean z) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 35) {
+            Api35Impl.setDecorFitsSystemWindows(window, z);
+        } else if (i >= 30) {
+            Api30Impl.setDecorFitsSystemWindows(window, z);
+        } else {
+            Api16Impl.setDecorFitsSystemWindows(window, z);
+        }
+    }
+
+    public static WindowInsetsControllerCompat getInsetsController(Window window, View view) {
+        return new WindowInsetsControllerCompat(window, view);
+    }
+
+    public static void enableEdgeToEdge(Window window) {
+        Objects.requireNonNull(window);
+        window.getDecorView();
+        setDecorFitsSystemWindows(window, false);
+        window.setStatusBarColor(0);
+        window.setNavigationBarColor(0);
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 28) {
+            int i2 = i >= 30 ? 3 : 1;
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            if (attributes.layoutInDisplayCutoutMode != i2) {
+                attributes.layoutInDisplayCutoutMode = i2;
+                window.setAttributes(attributes);
+            }
+        }
+        if (i >= 29) {
+            window.setStatusBarContrastEnforced(false);
+            window.setNavigationBarContrastEnforced(false);
+        }
+    }
+
+    static class Api16Impl {
+        static void setDecorFitsSystemWindows(Window window, boolean z) {
+            View decorView = window.getDecorView();
+            int systemUiVisibility = decorView.getSystemUiVisibility();
+            decorView.setSystemUiVisibility(z ? systemUiVisibility & (-1793) : systemUiVisibility | 1792);
+        }
+    }
+
+    static class Api30Impl {
+        static void setDecorFitsSystemWindows(Window window, boolean z) {
+            View decorView = window.getDecorView();
+            int systemUiVisibility = decorView.getSystemUiVisibility();
+            decorView.setSystemUiVisibility(z ? systemUiVisibility & (-257) : systemUiVisibility | IntBufferBatchMountItem.INSTRUCTION_UPDATE_EVENT_EMITTER);
+            window.setDecorFitsSystemWindows(z);
+        }
+    }
+
+    static class Api35Impl {
+        static void setDecorFitsSystemWindows(Window window, boolean z) {
+            window.setDecorFitsSystemWindows(z);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/didomi_title_horizontal_padding"
+    android:paddingTop="28dp"
+    android:paddingRight="@dimen/didomi_title_horizontal_padding"
+    android:paddingBottom="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="100dp"
+    android:minHeight="40dp"
+    android:paddingStart="@dimen/didomi_title_horizontal_padding"
+    android:paddingEnd="@dimen/didomi_title_horizontal_padding">
+    <ImageView
+        android:id="@+id/image_header_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"/>
+    <TextView
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/text_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"/>
+</FrameLayout>

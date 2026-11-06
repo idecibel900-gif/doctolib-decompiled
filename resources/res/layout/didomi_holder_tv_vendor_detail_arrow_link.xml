@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/didomi_tv_bg_recycle_view"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/didomi_tv_preferences_item_height">
+    <TextView
+        android:textColor="@color/didomi_se_ctv_purpose_holder_text"
+        android:gravity="center_vertical"
+        android:id="@+id/text_ctv_vendor_detail_arrow_link"
+        android:duplicateParentState="true"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        style="@style/DidomiTVTextAction"/>
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:duplicateParentState="true"
+        android:layout_width="8dp"
+        android:layout_height="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="49dp"
+        android:src="@drawable/didomi_se_ctv_arrow"
+        android:contentDescription="@null"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="49dp"/>
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="14dp"
+    android:paddingTop="10dp"
+    android:paddingRight="14dp"
+    android:paddingBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp">
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/text_purpose_illustrations_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:accessibilityHeading="true"
+        style="@style/DidomiDescriptiveText"/>
+    <TextView
+        android:id="@+id/text_purpose_illustration_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/DidomiDescriptiveText"/>
+    <View
+        android:id="@+id/view_purpose_illustrations_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:id="@+id/text_purpose_illustration_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/DidomiDescriptiveText"/>
+</LinearLayout>

@@ -1,0 +1,12 @@
+package androidx.compose.ui.node;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class LayoutModifierNodeKt {
+    public static final void invalidateLayer(LayoutModifierNode layoutModifierNode) {
+        DelegatableNodeKt.m1891requireCoordinator64DMado(layoutModifierNode, NodeKind.m1990constructorimpl(2)).invalidateLayer();
+    }
+
+    public static final void invalidateMeasurement(LayoutModifierNode layoutModifierNode) {
+        DelegatableNodeKt.requireLayoutNode(layoutModifierNode).invalidateMeasurements$ui_release();
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="24dp"
+    android:layout_height="wrap_content"
+    android:minHeight="12dp">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/image_ctv_switch_background"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:src="@drawable/didomi_bg_switch"/>
+    <ImageView
+        android:id="@+id/image_ctv_switch_button"
+        android:padding="2dp"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/didomi_button_toggle_switch"/>
+</FrameLayout>

@@ -1,0 +1,21 @@
+package com.facebook.common.references;
+
+import com.facebook.common.internal.Preconditions;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class RefCountCloseableReference extends CloseableReference {
+    private RefCountCloseableReference(SharedReference sharedReference, CloseableReference.LeakHandler leakHandler, Throwable th) {
+        super(sharedReference, leakHandler, th);
+    }
+
+    RefCountCloseableReference(Object obj, ResourceReleaser resourceReleaser, CloseableReference.LeakHandler leakHandler, Throwable th) {
+        super(obj, resourceReleaser, leakHandler, th, false);
+    }
+
+    @Override // com.facebook.common.references.CloseableReference
+    /* JADX INFO: renamed from: clone, reason: merged with bridge method [inline-methods] */
+    public CloseableReference m3216clone() {
+        Preconditions.checkState(isValid());
+        return new RefCountCloseableReference(this.mSharedReference, this.mLeakHandler, this.mStacktrace);
+    }
+}

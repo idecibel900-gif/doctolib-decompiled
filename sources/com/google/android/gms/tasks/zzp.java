@@ -1,0 +1,40 @@
+package com.google.android.gms.tasks;
+
+import java.util.concurrent.Executor;
+
+/* JADX INFO: loaded from: classes3.dex */
+final class zzp implements OnSuccessListener, OnFailureListener, OnCanceledListener, zzq {
+    private final Executor zza;
+    private final SuccessContinuation zzb;
+    private final zzw zzc;
+
+    public zzp(Executor executor, SuccessContinuation successContinuation, zzw zzwVar) {
+        this.zza = executor;
+        this.zzb = successContinuation;
+        this.zzc = zzwVar;
+    }
+
+    @Override // com.google.android.gms.tasks.OnCanceledListener
+    public final void onCanceled() {
+        this.zzc.zze();
+    }
+
+    @Override // com.google.android.gms.tasks.OnFailureListener
+    public final void onFailure(Exception exc) {
+        this.zzc.zzc(exc);
+    }
+
+    @Override // com.google.android.gms.tasks.OnSuccessListener
+    public final void onSuccess(Object obj) {
+        this.zzc.zza(obj);
+    }
+
+    @Override // com.google.android.gms.tasks.zzq
+    public final void zza(Task task) {
+        this.zza.execute(new zzo(this, task));
+    }
+
+    final /* synthetic */ SuccessContinuation zzc() {
+        return this.zzb;
+    }
+}

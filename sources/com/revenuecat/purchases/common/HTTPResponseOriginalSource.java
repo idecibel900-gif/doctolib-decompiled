@@ -1,0 +1,13 @@
+package com.revenuecat.purchases.common;
+
+import com.revenuecat.purchases.InternalRevenueCatAPI;
+import kotlin.Metadata;
+
+/* JADX INFO: loaded from: classes4.dex */
+@InternalRevenueCatAPI
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0005\b\u0087\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/revenuecat/purchases/common/HTTPResponseOriginalSource;", "", "(Ljava/lang/String;I)V", "MAIN", "LOAD_SHEDDER", "FALLBACK", "purchases_defaultsBc8Release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+public enum HTTPResponseOriginalSource {
+    MAIN,
+    LOAD_SHEDDER,
+    FALLBACK
+}

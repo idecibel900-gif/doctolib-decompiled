@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="@integer/didomi_focus_animation_time"
+    android:exitFadeDuration="@integer/didomi_focus_animation_time">
+    <item
+        android:state_focused="false"
+        android:state_enabled="true"
+        android:color="@color/didomi_tv_button_text"/>
+    <item
+        android:state_focused="true"
+        android:color="@color/didomi_tv_background_a"/>
+    <item
+        android:state_enabled="false"
+        android:color="@color/didomi_tv_button_disabled_text"/>
+</selector>

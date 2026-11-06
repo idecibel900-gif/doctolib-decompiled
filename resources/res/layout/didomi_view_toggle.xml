@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container_toggle"
+    android:layout_width="58dp"
+    android:layout_height="wrap_content"
+    android:minHeight="48dp">
+    <View
+        android:layout_gravity="center"
+        android:id="@+id/image_toggle_background"
+        android:layout_width="38dp"
+        android:layout_height="14dp"/>
+    <ImageView
+        android:id="@+id/image_toggle_button"
+        android:background="@drawable/didomi_button_toggle_switch"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="center"/>
+</FrameLayout>

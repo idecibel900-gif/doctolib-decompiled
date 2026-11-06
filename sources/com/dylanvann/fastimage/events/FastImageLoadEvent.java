@@ -1,0 +1,30 @@
+package com.dylanvann.fastimage.events;
+
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.uimanager.events.Event;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class FastImageLoadEvent extends Event {
+    private final int height;
+    private final int width;
+
+    public FastImageLoadEvent(int i, int i2, int i3, int i4) {
+        super(i, i2);
+        this.width = i3;
+        this.height = i4;
+    }
+
+    @Override // com.facebook.react.uimanager.events.Event
+    public String getEventName() {
+        return "onFastImageLoad";
+    }
+
+    @Override // com.facebook.react.uimanager.events.Event
+    protected WritableMap getEventData() {
+        WritableMap writableMapCreateMap = Arguments.createMap();
+        writableMapCreateMap.putInt("width", this.width);
+        writableMapCreateMap.putInt("height", this.height);
+        return writableMapCreateMap;
+    }
+}

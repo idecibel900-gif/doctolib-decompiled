@@ -1,0 +1,11 @@
+package com.vonage.webrtc;
+
+import android.content.Context;
+
+/* JADX INFO: loaded from: classes4.dex */
+public class ApplicationContextProvider {
+    @CalledByNative
+    public static Context getApplicationContext() {
+        return ContextUtils.getApplicationContext();
+    }
+}

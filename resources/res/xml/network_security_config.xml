@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">doctolib.de
+        </domain>
+        <pin-set expiration="2027-12-31">
+            <pin digest="SHA-256">CFtSlX6OU4eENrKNiHtx6zY8UV7/SoMM63hXbHdXgjs=
+            </pin>
+            <pin digest="SHA-256">G/ANXI8TwJTdF+AFBM8IiIUPEv0Gf6H5LA/b9guG4yE=
+            </pin>
+            <pin digest="SHA-256">K89VOmb1cJAN3TK6bf4ezAbJGC1mLcG2Dh97dnwr3VQ=
+            </pin>
+            <pin digest="SHA-256">x4QzPSC810K5/cMjb05Qm4k3Bw5zBn4lTdO/nEW/Td4=
+            </pin>
+            <pin digest="SHA-256">/mAMmbFbay0ESJ5nqjDg1sYjWZhtK5luMbycyTrFyUs=
+            </pin>
+            <pin digest="SHA-256">Kt2bkYM55rPaGBFYxTLlq8AIJqapRcc1eKjai8GUPO0=
+            </pin>
+            <pin digest="SHA-256">grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME=
+            </pin>
+            <pin digest="SHA-256">kD2cOcFs6heIBepGhBJ0SzG5c5/fr4zadPenLbtepqs=
+            </pin>
+            <pin digest="SHA-256">x8iYC3IJmVJzkxB6t6iAb16ou9o4GlR59wSvRmbEoFA=
+            </pin>
+            <pin digest="SHA-256">jgVlNsWqCbzaA0lCM2FLsHcr3D7vubr7VRJlT0encg8=
+            </pin>
+            <pin digest="SHA-256">rRCcVnsdFf0gZMZPSpg45aZLJZQiBue7/lfk+Wxy+LM=
+            </pin>
+            <pin digest="SHA-256">44viFzTC+h/L+3OHRg4Rs5v4+AcpzHZvI9Tne2RDNGk=
+            </pin>
+            <pin digest="SHA-256">GVnjj7fT/Ba+5eIOg04sZme/Dp5rmAa4a9QKbWbHFtA=
+            </pin>
+            <pin digest="SHA-256">58qRu/uxh4gFezqAcERupSkRYBlBAvfcw7mEjGPLnNU=
+            </pin>
+            <pin digest="SHA-256">ICGRfpgmOUXIWcQ/HXPLQTkFPEFPoDyjvH7ohhQpjzs=
+            </pin>
+            <pin digest="SHA-256">oC+voZLIy4HLE0FVT5wFtxzKKokLDRKY1oNkfJYe+98=
+            </pin>
+            <pin digest="SHA-256">ape1HIIZ6T5d7GS61YBs3rD4NVvkfnVwELcCRW4Bqv0=
+            </pin>
+            <pin digest="SHA-256">vazL8uiyfAwCponuhmybhuwERCr83d1dTsNt7yHnYd0=
+            </pin>
+            <pin digest="SHA-256">pJXI0RDoueIA83Cu2j/5LuQ/jj1OwNscDcWL12KIC6U=
+            </pin>
+            <pin digest="SHA-256">r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=
+            </pin>
+            <pin digest="SHA-256">i7WTqTvh0OioIruIfFR4kMPnBqrS2rdiVPl/s2uC/CY=
+            </pin>
+            <pin digest="SHA-256">uUwZgwDOxcBXrQcntwu+kYFpkiVkOaezL0WYEZ3anJc=
+            </pin>
+            <pin digest="SHA-256">OXyj9ngbqO9cjLeO/+t9Ggl2EP4JTnVWHq4LEwhFM9w=
+            </pin>
+            <pin digest="SHA-256">vn0e1DEpYDnOWeNSH0IkuvrS8iIAE7x5aB7EolDUxS0=
+            </pin>
+        </pin-set>
+    </domain-config>
+</network-security-config>

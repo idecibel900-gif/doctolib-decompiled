@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="322453"
+    android:versionName="5.17.0"
+    android:compileSdkVersion="36"
+    android:compileSdkVersionCodename="16"
+    android:requiredSplitTypes="base__abi,base__density"
+    android:splitTypes=""
+    package="fr.doctolib.www"
+    platformBuildVersionCode="36"
+    platformBuildVersionName="16">
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="36"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="tel"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="sms"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="mailto"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="org.chromium.intent.action.PAY"/>
+        </intent>
+        <intent>
+            <action android:name="org.chromium.intent.action.IS_READY_TO_PAY"/>
+        </intent>
+        <intent>
+            <action android:name="org.chromium.intent.action.UPDATE_PAYMENT_DETAILS"/>
+        </intent>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.instagram.android"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="content"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.OPEN_DOCUMENT"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.OPENABLE"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT"/>
+            <category android:name="android.intent.category.OPENABLE"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
+        </intent>
+        <intent>
+            <action android:name="com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NOTIFICATION_POLICY"
+        android:minSdkVersion="23"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission
+        android:name="android.permission.DETECT_SCREEN_CAPTURE"
+        android:minSdkVersion="34"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission
+        android:name="fr.doctolib.www.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="fr.doctolib.www.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-feature
+        android:glEsVersion="0x20000"
+        android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application
+        android:theme="@style/AppTheme"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:name="fr.doctolib.www.MainApplication"
+        android:allowBackup="false"
+        android:extractNativeLibs="true"
+        android:fullBackupContent="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:windowOptOutEdgeToEdgeEnforcement="true">
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fr.doctolib.www.auth"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name="fr.doctolib.www.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/short_host_fr"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/short_host_fr"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/short_host_de"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/short_host_de"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/short_host_it"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/short_host_it"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/host_fr"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/host_fr"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/host_de"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/host_de"/>
+                <data
+                    android:scheme="http"
+                    android:host="@string/host_it"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/host_it"/>
+                <data android:path=""/>
+                <data android:path="/"/>
+                <data android:path="/a"/>
+                <data android:path="/au"/>
+                <data android:path="/aut"/>
+                <data android:path="/auth"/>
+                <data android:pathPrefix="/ "/>
+                <data android:pathPrefix="/!"/>
+                <data android:pathPrefix="/&quot;"/>
+                <data android:pathPrefix="/#"/>
+                <data android:pathPrefix="/$"/>
+                <data android:pathPrefix="/%"/>
+                <data android:pathPrefix="/&amp;"/>
+                <data android:pathPrefix="/&apos;"/>
+                <data android:pathPrefix="/("/>
+                <data android:pathPrefix="/)"/>
+                <data android:pathPrefix="/*"/>
+                <data android:pathPrefix="/+"/>
+                <data android:pathPrefix="/,"/>
+                <data android:pathPrefix="/-"/>
+                <data android:pathPrefix="/."/>
+                <data android:pathPrefix="//"/>
+                <data android:pathPrefix="/0"/>
+                <data android:pathPrefix="/1"/>
+                <data android:pathPrefix="/2"/>
+                <data android:pathPrefix="/3"/>
+                <data android:pathPrefix="/4"/>
+                <data android:pathPrefix="/5"/>
+                <data android:pathPrefix="/6"/>
+                <data android:pathPrefix="/7"/>
+                <data android:pathPrefix="/8"/>
+                <data android:pathPrefix="/9"/>
+                <data android:pathPrefix="/:"/>
+                <data android:pathPrefix="/;"/>
+                <data android:pathPrefix="/&lt;"/>
+                <data android:pathPrefix="/="/>
+                <data android:pathPrefix="/&gt;"/>
+                <data android:pathPrefix="/?"/>
+                <data android:pathPrefix="/@"/>
+                <data android:pathPrefix="/A"/>
+                <data android:pathPrefix="/B"/>
+                <data android:pathPrefix="/C"/>
+                <data android:pathPrefix="/D"/>
+                <data android:pathPrefix="/E"/>
+                <data android:pathPrefix="/F"/>
+                <data android:pathPrefix="/G"/>
+                <data android:pathPrefix="/H"/>
+                <data android:pathPrefix="/I"/>
+                <data android:pathPrefix="/J"/>
+                <data android:pathPrefix="/K"/>
+                <data android:pathPrefix="/L"/>
+                <data android:pathPrefix="/M"/>
+                <data android:pathPrefix="/N"/>
+                <data android:pathPrefix="/O"/>
+                <data android:pathPrefix="/P"/>
+                <data android:pathPrefix="/Q"/>
+                <data android:pathPrefix="/R"/>
+                <data android:pathPrefix="/S"/>
+                <data android:pathPrefix="/T"/>
+                <data android:pathPrefix="/U"/>
+                <data android:pathPrefix="/V"/>
+                <data android:pathPrefix="/W"/>
+                <data android:pathPrefix="/X"/>
+                <data android:pathPrefix="/Y"/>
+                <data android:pathPrefix="/Z"/>
+                <data android:pathPrefix="/["/>
+                <data android:pathPrefix="/\\"/>
+                <data android:pathPrefix="/]"/>
+                <data android:pathPrefix="/^"/>
+                <data android:pathPrefix="/_"/>
+                <data android:pathPrefix="/`"/>
+                <data android:pathPrefix="/b"/>
+                <data android:pathPrefix="/c"/>
+                <data android:pathPrefix="/d"/>
+                <data android:pathPrefix="/e"/>
+                <data android:pathPrefix="/f"/>
+                <data android:pathPrefix="/g"/>
+                <data android:pathPrefix="/h"/>
+                <data android:pathPrefix="/i"/>
+                <data android:pathPrefix="/j"/>
+                <data android:pathPrefix="/k"/>
+                <data android:pathPrefix="/l"/>
+                <data android:pathPrefix="/m"/>
+                <data android:pathPrefix="/n"/>
+                <data android:pathPrefix="/o"/>
+                <data android:pathPrefix="/p"/>
+                <data android:pathPrefix="/q"/>
+                <data android:pathPrefix="/r"/>
+                <data android:pathPrefix="/s"/>
+                <data android:pathPrefix="/t"/>
+                <data android:pathPrefix="/u"/>
+                <data android:pathPrefix="/v"/>
+                <data android:pathPrefix="/w"/>
+                <data android:pathPrefix="/x"/>
+                <data android:pathPrefix="/y"/>
+                <data android:pathPrefix="/z"/>
+                <data android:pathPrefix="/{"/>
+                <data android:pathPrefix="/|"/>
+                <data android:pathPrefix="/}"/>
+                <data android:pathPrefix="/~"/>
+                <data android:pathPrefix="/a "/>
+                <data android:pathPrefix="/a!"/>
+                <data android:pathPrefix="/a&quot;"/>
+                <data android:pathPrefix="/a#"/>
+                <data android:pathPrefix="/a$"/>
+                <data android:pathPrefix="/a%"/>
+                <data android:pathPrefix="/a&amp;"/>
+                <data android:pathPrefix="/a&apos;"/>
+                <data android:pathPrefix="/a("/>
+                <data android:pathPrefix="/a)"/>
+                <data android:pathPrefix="/a*"/>
+                <data android:pathPrefix="/a+"/>
+                <data android:pathPrefix="/a,"/>
+                <data android:pathPrefix="/a-"/>
+                <data android:pathPrefix="/a."/>
+                <data android:pathPrefix="/a/"/>
+                <data android:pathPrefix="/a0"/>
+                <data android:pathPrefix="/a1"/>
+                <data android:pathPrefix="/a2"/>
+                <data android:pathPrefix="/a3"/>
+                <data android:pathPrefix="/a4"/>
+                <data android:pathPrefix="/a5"/>
+                <data android:pathPrefix="/a6"/>
+                <data android:pathPrefix="/a7"/>
+                <data android:pathPrefix="/a8"/>
+                <data android:pathPrefix="/a9"/>
+                <data android:pathPrefix="/a:"/>
+                <data android:pathPrefix="/a;"/>
+                <data android:pathPrefix="/a&lt;"/>
+                <data android:pathPrefix="/a="/>
+                <data android:pathPrefix="/a&gt;"/>
+                <data android:pathPrefix="/a?"/>
+                <data android:pathPrefix="/a@"/>
+                <data android:pathPrefix="/aA"/>
+                <data android:pathPrefix="/aB"/>
+                <data android:pathPrefix="/aC"/>
+                <data android:pathPrefix="/aD"/>
+                <data android:pathPrefix="/aE"/>
+                <data android:pathPrefix="/aF"/>
+                <data android:pathPrefix="/aG"/>
+                <data android:pathPrefix="/aH"/>
+                <data android:pathPrefix="/aI"/>
+                <data android:pathPrefix="/aJ"/>
+                <data android:pathPrefix="/aK"/>
+                <data android:pathPrefix="/aL"/>
+                <data android:pathPrefix="/aM"/>
+                <data android:pathPrefix="/aN"/>
+                <data android:pathPrefix="/aO"/>
+                <data android:pathPrefix="/aP"/>
+                <data android:pathPrefix="/aQ"/>
+                <data android:pathPrefix="/aR"/>
+                <data android:pathPrefix="/aS"/>
+                <data android:pathPrefix="/aT"/>
+                <data android:pathPrefix="/aU"/>
+                <data android:pathPrefix="/aV"/>
+                <data android:pathPrefix="/aW"/>
+                <data android:pathPrefix="/aX"/>
+                <data android:pathPrefix="/aY"/>
+                <data android:pathPrefix="/aZ"/>
+                <data android:pathPrefix="/a["/>
+                <data android:pathPrefix="/a\\"/>
+                <data android:pathPrefix="/a]"/>
+                <data android:pathPrefix="/a^"/>
+                <data android:pathPrefix="/a_"/>
+                <data android:pathPrefix="/a`"/>
+                <data android:pathPrefix="/aa"/>
+                <data android:pathPrefix="/ab"/>
+                <data android:pathPrefix="/ac"/>
+                <data android:pathPrefix="/ad"/>
+                <data android:pathPrefix="/ae"/>
+                <data android:pathPrefix="/af"/>
+                <data android:pathPrefix="/ag"/>
+                <data android:pathPrefix="/ah"/>
+                <data android:pathPrefix="/ai"/>
+                <data android:pathPrefix="/aj"/>
+                <data android:pathPrefix="/ak"/>
+                <data android:pathPrefix="/al"/>
+                <data android:pathPrefix="/am"/>
+                <data android:pathPrefix="/an"/>
+                <data android:pathPrefix="/ao"/>
+                <data android:pathPrefix="/ap"/>
+                <data android:pathPrefix="/aq"/>
+                <data android:pathPrefix="/ar"/>
+                <data android:pathPrefix="/as"/>
+                <data android:pathPrefix="/at"/>
+                <data android:pathPrefix="/av"/>
+                <data android:pathPrefix="/aw"/>
+                <data android:pathPrefix="/ax"/>
+                <data android:pathPrefix="/ay"/>
+                <data android:pathPrefix="/az"/>
+                <data android:pathPrefix="/a{"/>
+                <data android:pathPrefix="/a|"/>
+                <data android:pathPrefix="/a}"/>
+                <data android:pathPrefix="/a~"/>
+                <data android:pathPrefix="/au "/>
+                <data android:pathPrefix="/au!"/>
+                <data android:pathPrefix="/au&quot;"/>
+                <data android:pathPrefix="/au#"/>
+                <data android:pathPrefix="/au$"/>
+                <data android:pathPrefix="/au%"/>
+                <data android:pathPrefix="/au&amp;"/>
+                <data android:pathPrefix="/au&apos;"/>
+                <data android:pathPrefix="/au("/>
+                <data android:pathPrefix="/au)"/>
+                <data android:pathPrefix="/au*"/>
+                <data android:pathPrefix="/au+"/>
+                <data android:pathPrefix="/au,"/>
+                <data android:pathPrefix="/au-"/>
+                <data android:pathPrefix="/au."/>
+                <data android:pathPrefix="/au/"/>
+                <data android:pathPrefix="/au0"/>
+                <data android:pathPrefix="/au1"/>
+                <data android:pathPrefix="/au2"/>
+                <data android:pathPrefix="/au3"/>
+                <data android:pathPrefix="/au4"/>
+                <data android:pathPrefix="/au5"/>
+                <data android:pathPrefix="/au6"/>
+                <data android:pathPrefix="/au7"/>
+                <data android:pathPrefix="/au8"/>
+                <data android:pathPrefix="/au9"/>
+                <data android:pathPrefix="/au:"/>
+                <data android:pathPrefix="/au;"/>
+                <data android:pathPrefix="/au&lt;"/>
+                <data android:pathPrefix="/au="/>
+                <data android:pathPrefix="/au&gt;"/>
+                <data android:pathPrefix="/au?"/>
+                <data android:pathPrefix="/au@"/>
+                <data android:pathPrefix="/auA"/>
+                <data android:pathPrefix="/auB"/>
+                <data android:pathPrefix="/auC"/>
+                <data android:pathPrefix="/auD"/>
+                <data android:pathPrefix="/auE"/>
+                <data android:pathPrefix="/auF"/>
+                <data android:pathPrefix="/auG"/>
+                <data android:pathPrefix="/auH"/>
+                <data android:pathPrefix="/auI"/>
+                <data android:pathPrefix="/auJ"/>
+                <data android:pathPrefix="/auK"/>
+                <data android:pathPrefix="/auL"/>
+                <data android:pathPrefix="/auM"/>
+                <data android:pathPrefix="/auN"/>
+                <data android:pathPrefix="/auO"/>
+                <data android:pathPrefix="/auP"/>
+                <data android:pathPrefix="/auQ"/>
+                <data android:pathPrefix="/auR"/>
+                <data android:pathPrefix="/auS"/>
+                <data android:pathPrefix="/auT"/>
+                <data android:pathPrefix="/auU"/>
+                <data android:pathPrefix="/auV"/>
+                <data android:pathPrefix="/auW"/>
+                <data android:pathPrefix="/auX"/>
+                <data android:pathPrefix="/auY"/>
+                <data android:pathPrefix="/auZ"/>
+                <data android:pathPrefix="/au["/>
+                <data android:pathPrefix="/au\\"/>
+                <data android:pathPrefix="/au]"/>
+                <data android:pathPrefix="/au^"/>
+                <data android:pathPrefix="/au_"/>
+                <data android:pathPrefix="/au`"/>
+                <data android:pathPrefix="/aua"/>
+                <data android:pathPrefix="/aub"/>
+                <data android:pathPrefix="/auc"/>
+                <data android:pathPrefix="/aud"/>
+                <data android:pathPrefix="/aue"/>
+                <data android:pathPrefix="/auf"/>
+                <data android:pathPrefix="/aug"/>
+                <data android:pathPrefix="/auh"/>
+                <data android:pathPrefix="/aui"/>
+                <data android:pathPrefix="/auj"/>
+                <data android:pathPrefix="/auk"/>
+                <data android:pathPrefix="/aul"/>
+                <data android:pathPrefix="/aum"/>
+                <data android:pathPrefix="/aun"/>
+                <data android:pathPrefix="/auo"/>
+                <data android:pathPrefix="/aup"/>
+                <data android:pathPrefix="/auq"/>
+                <data android:pathPrefix="/aur"/>
+                <data android:pathPrefix="/aus"/>
+                <data android:pathPrefix="/auu"/>
+                <data android:pathPrefix="/auv"/>
+                <data android:pathPrefix="/auw"/>
+                <data android:pathPrefix="/aux"/>
+                <data android:pathPrefix="/auy"/>
+                <data android:pathPrefix="/auz"/>
+                <data android:pathPrefix="/au{"/>
+                <data android:pathPrefix="/au|"/>
+                <data android:pathPrefix="/au}"/>
+                <data android:pathPrefix="/au~"/>
+                <data android:pathPrefix="/aut "/>
+                <data android:pathPrefix="/aut!"/>
+                <data android:pathPrefix="/aut&quot;"/>
+                <data android:pathPrefix="/aut#"/>
+                <data android:pathPrefix="/aut$"/>
+                <data android:pathPrefix="/aut%"/>
+                <data android:pathPrefix="/aut&amp;"/>
+                <data android:pathPrefix="/aut&apos;"/>
+                <data android:pathPrefix="/aut("/>
+                <data android:pathPrefix="/aut)"/>
+                <data android:pathPrefix="/aut*"/>
+                <data android:pathPrefix="/aut+"/>
+                <data android:pathPrefix="/aut,"/>
+                <data android:pathPrefix="/aut-"/>
+                <data android:pathPrefix="/aut."/>
+                <data android:pathPrefix="/aut/"/>
+                <data android:pathPrefix="/aut0"/>
+                <data android:pathPrefix="/aut1"/>
+                <data android:pathPrefix="/aut2"/>
+                <data android:pathPrefix="/aut3"/>
+                <data android:pathPrefix="/aut4"/>
+                <data android:pathPrefix="/aut5"/>
+                <data android:pathPrefix="/aut6"/>
+                <data android:pathPrefix="/aut7"/>
+                <data android:pathPrefix="/aut8"/>
+                <data android:pathPrefix="/aut9"/>
+                <data android:pathPrefix="/aut:"/>
+                <data android:pathPrefix="/aut;"/>
+                <data android:pathPrefix="/aut&lt;"/>
+                <data android:pathPrefix="/aut="/>
+                <data android:pathPrefix="/aut&gt;"/>
+                <data android:pathPrefix="/aut?"/>
+                <data android:pathPrefix="/aut@"/>
+                <data android:pathPrefix="/autA"/>
+                <data android:pathPrefix="/autB"/>
+                <data android:pathPrefix="/autC"/>
+                <data android:pathPrefix="/autD"/>
+                <data android:pathPrefix="/autE"/>
+                <data android:pathPrefix="/autF"/>
+                <data android:pathPrefix="/autG"/>
+                <data android:pathPrefix="/autH"/>
+                <data android:pathPrefix="/autI"/>
+                <data android:pathPrefix="/autJ"/>
+                <data android:pathPrefix="/autK"/>
+                <data android:pathPrefix="/autL"/>
+                <data android:pathPrefix="/autM"/>
+                <data android:pathPrefix="/autN"/>
+                <data android:pathPrefix="/autO"/>
+                <data android:pathPrefix="/autP"/>
+                <data android:pathPrefix="/autQ"/>
+                <data android:pathPrefix="/autR"/>
+                <data android:pathPrefix="/autS"/>
+                <data android:pathPrefix="/autT"/>
+                <data android:pathPrefix="/autU"/>
+                <data android:pathPrefix="/autV"/>
+                <data android:pathPrefix="/autW"/>
+                <data android:pathPrefix="/autX"/>
+                <data android:pathPrefix="/autY"/>
+                <data android:pathPrefix="/autZ"/>
+                <data android:pathPrefix="/aut["/>
+                <data android:pathPrefix="/aut\\"/>
+                <data android:pathPrefix="/aut]"/>
+                <data android:pathPrefix="/aut^"/>
+                <data android:pathPrefix="/aut_"/>
+                <data android:pathPrefix="/aut`"/>
+                <data android:pathPrefix="/auta"/>
+                <data android:pathPrefix="/autb"/>
+                <data android:pathPrefix="/autc"/>
+                <data android:pathPrefix="/autd"/>
+                <data android:pathPrefix="/aute"/>
+                <data android:pathPrefix="/autf"/>
+                <data android:pathPrefix="/autg"/>
+                <data android:pathPrefix="/auti"/>
+                <data android:pathPrefix="/autj"/>
+                <data android:pathPrefix="/autk"/>
+                <data android:pathPrefix="/autl"/>
+                <data android:pathPrefix="/autm"/>
+                <data android:pathPrefix="/autn"/>
+                <data android:pathPrefix="/auto"/>
+                <data android:pathPrefix="/autp"/>
+                <data android:pathPrefix="/autq"/>
+                <data android:pathPrefix="/autr"/>
+                <data android:pathPrefix="/auts"/>
+                <data android:pathPrefix="/autt"/>
+                <data android:pathPrefix="/autu"/>
+                <data android:pathPrefix="/autv"/>
+                <data android:pathPrefix="/autw"/>
+                <data android:pathPrefix="/autx"/>
+                <data android:pathPrefix="/auty"/>
+                <data android:pathPrefix="/autz"/>
+                <data android:pathPrefix="/aut{"/>
+                <data android:pathPrefix="/aut|"/>
+                <data android:pathPrefix="/aut}"/>
+                <data android:pathPrefix="/aut~"/>
+                <data android:pathPrefix="/auth "/>
+                <data android:pathPrefix="/auth!"/>
+                <data android:pathPrefix="/auth&quot;"/>
+                <data android:pathPrefix="/auth#"/>
+                <data android:pathPrefix="/auth$"/>
+                <data android:pathPrefix="/auth%"/>
+                <data android:pathPrefix="/auth&amp;"/>
+                <data android:pathPrefix="/auth&apos;"/>
+                <data android:pathPrefix="/auth("/>
+                <data android:pathPrefix="/auth)"/>
+                <data android:pathPrefix="/auth*"/>
+                <data android:pathPrefix="/auth+"/>
+                <data android:pathPrefix="/auth,"/>
+                <data android:pathPrefix="/auth-"/>
+                <data android:pathPrefix="/auth."/>
+                <data android:pathPrefix="/auth/"/>
+                <data android:pathPrefix="/auth0"/>
+                <data android:pathPrefix="/auth1"/>
+                <data android:pathPrefix="/auth2"/>
+                <data android:pathPrefix="/auth3"/>
+                <data android:pathPrefix="/auth4"/>
+                <data android:pathPrefix="/auth5"/>
+                <data android:pathPrefix="/auth6"/>
+                <data android:pathPrefix="/auth7"/>
+                <data android:pathPrefix="/auth8"/>
+                <data android:pathPrefix="/auth9"/>
+                <data android:pathPrefix="/auth:"/>
+                <data android:pathPrefix="/auth;"/>
+                <data android:pathPrefix="/auth&lt;"/>
+                <data android:pathPrefix="/auth="/>
+                <data android:pathPrefix="/auth&gt;"/>
+                <data android:pathPrefix="/auth?"/>
+                <data android:pathPrefix="/auth@"/>
+                <data android:pathPrefix="/authA"/>
+                <data android:pathPrefix="/authB"/>
+                <data android:pathPrefix="/authC"/>
+                <data android:pathPrefix="/authD"/>
+                <data android:pathPrefix="/authE"/>
+                <data android:pathPrefix="/authF"/>
+                <data android:pathPrefix="/authG"/>
+                <data android:pathPrefix="/authH"/>
+                <data android:pathPrefix="/authI"/>
+                <data android:pathPrefix="/authJ"/>
+                <data android:pathPrefix="/authK"/>
+                <data android:pathPrefix="/authL"/>
+                <data android:pathPrefix="/authM"/>
+                <data android:pathPrefix="/authN"/>
+                <data android:pathPrefix="/authO"/>
+                <data android:pathPrefix="/authP"/>
+                <data android:pathPrefix="/authQ"/>
+                <data android:pathPrefix="/authR"/>
+                <data android:pathPrefix="/authS"/>
+                <data android:pathPrefix="/authT"/>
+                <data android:pathPrefix="/authU"/>
+                <data android:pathPrefix="/authV"/>
+                <data android:pathPrefix="/authW"/>
+                <data android:pathPrefix="/authX"/>
+                <data android:pathPrefix="/authY"/>
+                <data android:pathPrefix="/authZ"/>
+                <data android:pathPrefix="/auth["/>
+                <data android:pathPrefix="/auth\\"/>
+                <data android:pathPrefix="/auth]"/>
+                <data android:pathPrefix="/auth^"/>
+                <data android:pathPrefix="/auth_"/>
+                <data android:pathPrefix="/auth`"/>
+                <data android:pathPrefix="/autha"/>
+                <data android:pathPrefix="/authb"/>
+                <data android:pathPrefix="/authc"/>
+                <data android:pathPrefix="/authd"/>
+                <data android:pathPrefix="/authe"/>
+                <data android:pathPrefix="/authf"/>
+                <data android:pathPrefix="/authg"/>
+                <data android:pathPrefix="/authh"/>
+                <data android:pathPrefix="/authi"/>
+                <data android:pathPrefix="/authj"/>
+                <data android:pathPrefix="/authk"/>
+                <data android:pathPrefix="/authl"/>
+                <data android:pathPrefix="/authm"/>
+                <data android:pathPrefix="/autho"/>
+                <data android:pathPrefix="/authp"/>
+                <data android:pathPrefix="/authq"/>
+                <data android:pathPrefix="/authr"/>
+                <data android:pathPrefix="/auths"/>
+                <data android:pathPrefix="/autht"/>
+                <data android:pathPrefix="/authu"/>
+                <data android:pathPrefix="/authv"/>
+                <data android:pathPrefix="/authw"/>
+                <data android:pathPrefix="/authx"/>
+                <data android:pathPrefix="/authy"/>
+                <data android:pathPrefix="/authz"/>
+                <data android:pathPrefix="/auth{"/>
+                <data android:pathPrefix="/auth|"/>
+                <data android:pathPrefix="/auth}"/>
+                <data android:pathPrefix="/auth~"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="https"
+                    android:host="@string/adjust_branded_domain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/adjust_app_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/process_text_ask_doctolib">
+                <action android:name="android.intent.action.PROCESS_TEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/screeb_scheme_fr"/>
+                <data android:scheme="@string/screeb_scheme_de"/>
+                <data android:scheme="@string/screeb_scheme_it"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="0x7f080155"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/primary"/>
+        <meta-data
+            android:name="expo.modules.updates.ENABLED"
+            android:value="true"/>
+        <meta-data
+            android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH"
+            android:value="NEVER"/>
+        <meta-data
+            android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS"
+            android:value="0"/>
+        <meta-data
+            android:name="expo.modules.updates.EXPO_UPDATE_URL"
+            android:value="https://www.doctolib.fr/mobile-ota-server/manifest/patient"/>
+        <meta-data
+            android:name="expo.modules.updates.UPDATES_CONFIGURATION_REQUEST_HEADERS_KEY"
+            android:value="{&quot;expo-channel-name&quot;:&quot;main&quot;,&quot;expo-pin-update-id&quot;:&quot;&quot;}"/>
+        <meta-data
+            android:name="expo.modules.updates.EXPO_RUNTIME_VERSION"
+            android:value="@string/expo_runtime_version"/>
+        <meta-data
+            android:name="expo.modules.updates.CODE_SIGNING_CERTIFICATE"
+            android:value="-----BEGIN CERTIFICATE-----\10MIIDdTCCAl2gAwIBAgIUIQ0s1XRUIxXIvNit0ub7DnWVC1gwDQYJKoZIhvcNAQEL\10BQAwSDEzMDEGA1UEAwwqRG9jdG9saWIgbW9iaWxlLW90YS1zZXJ2ZXIgcGF0aWVu\10dCBldS1wcm9kMREwDwYDVQQKDAhEb2N0b2xpYjAeFw0yNjA5MjMwODIxNTFaFw0z\10NjA5MjAwODIxNTFaMEgxMzAxBgNVBAMMKkRvY3RvbGliIG1vYmlsZS1vdGEtc2Vy\10dmVyIHBhdGllbnQgZXUtcHJvZDERMA8GA1UECgwIRG9jdG9saWIwggEiMA0GCSqG\10SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDA0++5lNmtKPxQluAzCK+NCE8SjFzoOmaZ\10VsTDyI6RL5KkEO5kg4tYG5Z6+XUzO1H98iYTp8eXJ9WVIbcdWskrxOyUesJQwfzN\10hWi2gco5+1DR36gWGfDr7Z7mkO6Pjfd/+4cHtWETLYHdYUCB0ckRkx1SLKPYDKFs\10KQLI4nLN/13ir8mC1r/cr8Ee1Sd+5NnKM3AFq+3/gfks4bWivVwujg0O9Zhk0ebn\10wpAQC5KTxbQJIlWUspMkK8fkJQTTChhz2xxRCLCjWmcNb4y4QzS86UF/s88jp33v\10ek/FszrDjjNJybQl5jERT2muOusa4oCqCIsDV+QUbtyZ79CMTEg1AgMBAAGjVzBV\10MAwGA1UdEwEB/wQCMAAwDgYDVR0PAQH/BAQDAgeAMBYGA1UdJQEB/wQMMAoGCCsG\10AQUFBwMDMB0GA1UdDgQWBBRmdsN5DrrnBoCvPITaUDxCmmbtdDANBgkqhkiG9w0B\10AQsFAAOCAQEAbY++SxXko5t8G4/IVyBylyQfrVHlzjnq/TV39knhotef8CdM/wPg\10rI0Ia9lWEhPatK81qMDbtPVYGQE8vsgDGRbyMv9PJM1RSPExRsEz/hGetQVBklfg\10l66kg57Uv4dDIFPaTVYeX2VxntLShN0kPDw0Vq0Wjt4cv2c6OpFKdL/bDbKYcnvn\10LZbAvm19EtqoP+tn9E0ybY+XtmkuAp3N2PkWfKqE0ecXFjsvuN8Pt6aQVPyFSGTo\10QMrF+3cTwqfWVLaDlyDQzeYpmL+JNkI3shnrMuA7bCskYqbsIl1GSDUe3QkFsm8O\10aJ9uj/PTy6JHIjRx8s5hKtqh2asXblWcHg==\10-----END CERTIFICATE-----\10"/>
+        <meta-data
+            android:name="expo.modules.updates.CODE_SIGNING_METADATA"
+            android:value="{&quot;keyid&quot;:&quot;mobile-ota-server_patient_eu-prod&quot;,&quot;alg&quot;:&quot;rsa-v1_5-sha256&quot;}"/>
+        <service
+            android:name="app.notifee.core.ReceiverService"
+            android:exported="false"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="app.notifee.core.NotificationReceiverActivity"
+            android:exported="true"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true"/>
+        <service
+            android:name="app.notifee.core.ForegroundService"
+            android:exported="false"/>
+        <receiver
+            android:name="app.notifee.core.RebootBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="app.notifee.core.AlarmPermissionBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="app.notifee.core.NotificationAlarmReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name="app.notifee.core.BlockStateBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.app.action.APP_BLOCK_STATE_CHANGED"/>
+                <action android:name="android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED"/>
+                <action android:name="android.app.action.NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="io.invertase.notifee.NotifeeInitProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.notifee-init-provider"
+            android:initOrder="-100"/>
+        <provider
+            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <meta-data
+            android:name="org.unimodules.core.AppLoader#react-native-headless"
+            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader"/>
+        <meta-data
+            android:name="com.facebook.soloader.enabled"
+            android:value="true"/>
+        <service
+            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService"
+            android:exported="false"/>
+        <service
+            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="delivery_metrics_exported_to_big_query_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="firebase_messaging_notification_delegation_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value=""/>
+        <meta-data
+            android:name="app_data_collection_default_enabled"
+            android:value="true"/>
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false"
+            android:directBootAware="true">
+            <meta-data
+                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider
+            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.reactnativefirebaseappinitprovider"
+            android:initOrder="99"/>
+        <meta-data
+            android:name="io.sentry.auto-init"
+            android:value="false"/>
+        <receiver
+            android:name="com.adjust.sdk.AdjustReferrerReceiver"
+            android:permission="android.permission.INSTALL_PACKAGES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.ReactNativeBlobUtil.Utils.FileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.provider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider
+            android:name="cl.json.RNShareFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.rnshare.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/share_download_paths"/>
+        </provider>
+        <activity
+            android:theme="@style/Fullscreen"
+            android:name="expo.modules.video.FullscreenPlayerActivity"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|navigation"
+            android:supportsPictureInPicture="true"/>
+        <provider
+            android:name="com.datadog.android.rum.DdRumContentProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.provider.datadog.rum"/>
+        <activity
+            android:theme="@style/Didomi.Theme.TVActivityDialog"
+            android:name="io.didomi.ssl.preferences.ctv.TVPreferencesDialogActivity"
+            android:launchMode="singleTop"/>
+        <activity
+            android:theme="@style/Didomi.Theme.TVActivityDialog"
+            android:name="io.didomi.ssl.notice.ctv.TVNoticeDialogActivity"
+            android:launchMode="singleTop"/>
+        <provider
+            android:name="app.screeb.sdk.ScreebInitProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.screebinitprovider"
+            android:initOrder="2147483647"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="app.screeb.sdk.ScreebFilePickerActivity"
+            android:exported="false"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="app.screeb.sdk.ScreebPermissionActivity"
+            android:exported="false"
+            android:configChanges="screenSize|orientation"/>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.androidx-startup">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup"/>
+        </provider>
+        <service
+            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:enabled="@bool/enable_system_job_service_default"
+            android:exported="true"
+            android:directBootAware="false"/>
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:enabled="@bool/enable_system_foreground_service_default"
+            android:exported="false"
+            android:directBootAware="false"/>
+        <receiver
+            android:name="androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:directBootAware="false"/>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+            android:permission="android.permission.DUMP"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="expo.modules.clipboard.ClipboardFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.ClipboardFileProvider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="expo.modules.clipboard.CLIPBOARD_FILE_PROVIDER_PATHS"
+                android:resource="@xml/clipboard_provider_paths"/>
+        </provider>
+        <provider
+            android:name="expo.modules.filesystem.FileSystemFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.FileSystemFileProvider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_system_provider_paths"/>
+        </provider>
+        <service
+            android:name="com.google.android.gms.metadata.ModuleDependencies"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES"/>
+            </intent-filter>
+            <meta-data
+                android:name="photopicker_activity:0:required"
+                android:value=""/>
+        </service>
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:exported="false"/>
+        <activity
+            android:theme="@style/Base.Theme.AppCompat"
+            android:name="expo.modules.imagepicker.ExpoCropImageActivity"
+            android:exported="false"/>
+        <provider
+            android:name="expo.modules.imagepicker.fileprovider.ImagePickerFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.ImagePickerFileProvider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_picker_provider_paths"/>
+        </provider>
+        <service
+            android:name="expo.modules.location.services.LocationTaskService"
+            android:exported="false"
+            android:foregroundServiceType="location"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="expo.modules.webbrowser.BrowserProxyActivity"
+            android:exported="false"
+            android:taskAffinity=".webContainer"
+            android:launchMode="singleTop"/>
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule"/>
+        <activity
+            android:name="com.revenuecat.purchases.ui.revenuecatui.activity.PaywallActivity"
+            android:exported="false"/>
+        <activity
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.revenuecat.purchases.ui.revenuecatui.customercenter.CustomerCenterActivity"
+            android:exported="false"/>
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+            <meta-data
+                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+                android:value="true"/>
+        </receiver>
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false"
+            android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.firebaseinitprovider"
+            android:initOrder="100"
+            android:directBootAware="true"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Translucent.NoTitleBar"
+            android:name="net.openid.appauth.AuthorizationManagementActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
+        <provider
+            android:name="com.canhub.cropper.CropFileProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.cropper.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/cropper_library_file_paths"/>
+        </provider>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"/>
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+            android:exported="true"
+            android:visibleToInstantApps="true"/>
+        <receiver
+            android:name="com.amazon.device.iap.ResponseReceiver"
+            android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.amazon.inapp.purchasing.NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.revenuecat.purchases.amazon.purchasing.ProxyAmazonBillingActivity"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
+        <activity
+            android:theme="@android:style/Theme.Material.Dialog.Alert"
+            android:name="com.revenuecat.purchases.SimulatedStoreErrorDialogActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="screenSize|orientation"/>
+        <meta-data
+            android:name="com.google.android.play.billingclient.version"
+            android:value="8.3.0"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.android.billingclient.api.ProxyBillingActivity"
+            android:exported="false"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.android.billingclient.api.ProxyBillingActivityV2"
+            android:exported="false"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"/>
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:exported="false"
+            android:directBootAware="true"/>
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false"/>
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false"/>
+        <provider
+            android:name="io.sentry.android.core.SentryInitProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.SentryInitProvider"/>
+        <provider
+            android:name="io.sentry.android.core.SentryPerformanceProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.SentryPerformanceProvider"
+            android:initOrder="200"/>
+        <meta-data
+            android:name="com.bumptech.glide.integration.webp.WebpGlideModule"
+            android:value="GlideModule"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:permission="android.permission.DUMP"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            android:exported="false">
+            <meta-data
+                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                android:value="cct"/>
+        </service>
+        <service
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+            android:exported="false"/>
+        <provider
+            android:name="com.adjust.sdk.SystemLifecycleContentProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.adjust-lifecycle-provider"/>
+        <activity
+            android:theme="@style/Theme.PlayCore.Transparent"
+            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+            android:exported="false"
+            android:stateNotNeeded="true"/>
+        <provider
+            android:name="io.sentry.ndk.SentryNdkPreloadProvider"
+            android:exported="false"
+            android:authorities="fr.doctolib.www.SentryNdkPreloadProvider"
+            android:initOrder="2000000000"/>
+        <meta-data
+            android:name="com.android.vending.splits.required"
+            android:value="true"/>
+        <meta-data
+            android:name="com.android.stamp.source"
+            android:value="https://play.google.com/store"/>
+        <meta-data
+            android:name="com.android.stamp.type"
+            android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data
+            android:name="com.android.vending.splits"
+            android:resource="@xml/splits0"/>
+        <meta-data
+            android:name="com.android.vending.derived.apk.id"
+            android:value="3"/>
+    </application>
+</manifest>

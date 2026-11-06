@@ -1,0 +1,42 @@
+package com.google.android.datatransport.runtime.scheduling.persistence;
+
+import com.revenuecat.purchases.ui.revenuecatui.helpers.ColorExtractionConstants;
+
+/* JADX INFO: loaded from: classes3.dex */
+abstract class EventStoreConfig {
+    static final EventStoreConfig DEFAULT = builder().setMaxStorageSizeInBytes(10485760).setLoadBatchSize(200).setCriticalSectionEnterTimeoutMs(ColorExtractionConstants.MAX_PIXEL_SAMPLES).setEventCleanUpAge(604800000).setMaxBlobByteSizePerRow(81920).build();
+
+    abstract int getCriticalSectionEnterTimeoutMs();
+
+    abstract long getEventCleanUpAge();
+
+    abstract int getLoadBatchSize();
+
+    abstract int getMaxBlobByteSizePerRow();
+
+    abstract long getMaxStorageSizeInBytes();
+
+    EventStoreConfig() {
+    }
+
+    static Builder builder() {
+        return new AutoValue_EventStoreConfig.Builder();
+    }
+
+    static abstract class Builder {
+        abstract EventStoreConfig build();
+
+        abstract Builder setCriticalSectionEnterTimeoutMs(int i);
+
+        abstract Builder setEventCleanUpAge(long j);
+
+        abstract Builder setLoadBatchSize(int i);
+
+        abstract Builder setMaxBlobByteSizePerRow(int i);
+
+        abstract Builder setMaxStorageSizeInBytes(long j);
+
+        Builder() {
+        }
+    }
+}

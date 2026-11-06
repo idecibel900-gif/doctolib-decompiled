@@ -1,0 +1,25 @@
+package androidx.compose.ui.layout;
+
+import androidx.compose.ui.node.LookaheadCapablePlaceable;
+import androidx.compose.ui.unit.LayoutDirection;
+
+/* JADX INFO: loaded from: classes.dex */
+final class LookaheadCapablePlacementScope extends Placeable.PlacementScope {
+    private final LookaheadCapablePlaceable within;
+
+    public LookaheadCapablePlacementScope(LookaheadCapablePlaceable lookaheadCapablePlaceable) {
+        this.within = lookaheadCapablePlaceable;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.compose.ui.layout.Placeable.PlacementScope
+    public int getParentWidth() {
+        return this.within.getMeasuredWidth();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.compose.ui.layout.Placeable.PlacementScope
+    public LayoutDirection getParentLayoutDirection() {
+        return this.within.getLayoutDirection();
+    }
+}

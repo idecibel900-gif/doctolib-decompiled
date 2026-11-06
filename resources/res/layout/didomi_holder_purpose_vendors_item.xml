@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="top"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/image_purpose_vendor"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/didomi_bullet_point"/>
+    <TextView
+        android:id="@+id/text_purpose_vendor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/DidomiDataProcessingLabel"/>
+</LinearLayout>

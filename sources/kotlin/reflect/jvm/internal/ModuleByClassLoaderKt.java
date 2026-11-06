@@ -1,0 +1,50 @@
+package kotlin.reflect.jvm.internal;
+
+import java.lang.ref.WeakReference;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.reflect.jvm.internal.impl.descriptors.runtime.components.RuntimeModuleData;
+import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectClassUtilKt;
+
+/* JADX INFO: loaded from: classes5.dex */
+public abstract class ModuleByClassLoaderKt {
+    private static final ConcurrentMap moduleByClassLoader = new ConcurrentHashMap();
+
+    public static final RuntimeModuleData getOrCreateModule(Class cls) {
+        Intrinsics.checkNotNullParameter(cls, "<this>");
+        ClassLoader safeClassLoader = ReflectClassUtilKt.getSafeClassLoader(cls);
+        WeakClassLoaderBox weakClassLoaderBox = new WeakClassLoaderBox(safeClassLoader);
+        ConcurrentMap concurrentMap = moduleByClassLoader;
+        WeakReference weakReference = (WeakReference) concurrentMap.get(weakClassLoaderBox);
+        if (weakReference != null) {
+            RuntimeModuleData runtimeModuleData = (RuntimeModuleData) weakReference.get();
+            if (runtimeModuleData != null) {
+                return runtimeModuleData;
+            }
+            concurrentMap.remove(weakClassLoaderBox, weakReference);
+        }
+        RuntimeModuleData runtimeModuleDataCreate = RuntimeModuleData.Companion.create(safeClassLoader);
+        while (true) {
+            try {
+                ConcurrentMap concurrentMap2 = moduleByClassLoader;
+                WeakReference weakReference2 = (WeakReference) concurrentMap2.putIfAbsent(weakClassLoaderBox, new WeakReference(runtimeModuleDataCreate));
+                if (weakReference2 != null) {
+                    RuntimeModuleData runtimeModuleData2 = (RuntimeModuleData) weakReference2.get();
+                    if (runtimeModuleData2 == null) {
+                        concurrentMap2.remove(weakClassLoaderBox, weakReference2);
+                    } else {
+                        weakClassLoaderBox.setTemporaryStrongRef(null);
+                        return runtimeModuleData2;
+                    }
+                } else {
+                    weakClassLoaderBox.setTemporaryStrongRef(null);
+                    return runtimeModuleDataCreate;
+                }
+            } catch (Throwable th) {
+                weakClassLoaderBox.setTemporaryStrongRef(null);
+                throw th;
+            }
+        }
+    }
+}

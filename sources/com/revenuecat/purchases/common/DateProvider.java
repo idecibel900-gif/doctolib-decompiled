@@ -1,0 +1,12 @@
+package com.revenuecat.purchases.common;
+
+import com.revenuecat.purchases.InternalRevenueCatAPI;
+import java.util.Date;
+import kotlin.Metadata;
+
+/* JADX INFO: loaded from: classes4.dex */
+@InternalRevenueCatAPI
+@Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\bg\u0018\u00002\u00020\u0001R\u0012\u0010\u0002\u001a\u00020\u0003X¦\u0004¢\u0006\u0006\u001a\u0004\b\u0004\u0010\u0005¨\u0006\u0006À\u0006\u0003"}, d2 = {"Lcom/revenuecat/purchases/common/DateProvider;", "", "now", "Ljava/util/Date;", "getNow", "()Ljava/util/Date;", "purchases_defaultsBc8Release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+public interface DateProvider {
+    Date getNow();
+}

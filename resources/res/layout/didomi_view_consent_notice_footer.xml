@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/didomi_notice_padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_notice_footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/didomi_notice_footer_margin_top"
+        app:constraint_referenced_ids="button_notice_footer_learn_more,button_notice_footer_manage_spi_choices,button_notice_footer_disagree,button_notice_footer_agree"
+        app:flow_horizontalAlign="center"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="20dp"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalBias="0"
+        app:flow_verticalGap="6dp"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/didomi_content_max_width_without_padding"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_notice_footer_learn_more"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/DidomiActionButton"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_notice_footer_manage_spi_choices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/DidomiActionButton"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_notice_footer_disagree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/DidomiActionButton"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_notice_footer_agree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/DidomiActionButton"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tint="@color/didomi_tv_background_a"
+    android:height="12dp"
+    android:width="8dp"
+    android:viewportWidth="16"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#f9fafa"
+        android:pathData="M15.5917,12.9072C16.1361,12.4124 16.1361,11.5876 15.5917,11.0928L3.8563,0.3711C3.2514,-0.1237 2.344,-0.1237 1.7996,0.3711L0.4083,1.6357C-0.1361,2.1306 -0.1361,2.9553 0.4083,3.5052L9.724,11.9725L0.4083,20.4948C-0.1361,21.0447 -0.1361,21.8694 0.4083,22.3643L1.7996,23.6289C2.344,24.1237 3.2514,24.1237 3.8563,23.6289L15.5917,12.9072Z"/>
+</vector>

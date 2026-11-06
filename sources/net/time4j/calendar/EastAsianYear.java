@@ -1,0 +1,33 @@
+package net.time4j.calendar;
+
+import net.time4j.base.MathUtils;
+
+/* JADX INFO: loaded from: classes5.dex */
+public abstract class EastAsianYear {
+    public abstract int getElapsedCyclicYears();
+
+    public static EastAsianYear forGregorian(final int i) {
+        return new EastAsianYear() { // from class: net.time4j.calendar.EastAsianYear.1
+            @Override // net.time4j.calendar.EastAsianYear
+            public int getElapsedCyclicYears() {
+                return MathUtils.safeAdd(i, 2636);
+            }
+        };
+    }
+
+    public static EastAsianYear forDangi(int i) {
+        if (i < 1) {
+            throw new IllegalArgumentException("Dangi year must not be smaller than 1: " + i);
+        }
+        return forGregorian(MathUtils.safeAdd(i, -2333));
+    }
+
+    public final int getCycle() {
+        return MathUtils.floorDivide(getElapsedCyclicYears(), 60) + 1;
+    }
+
+    public final CyclicYear getYearOfCycle() {
+        int iFloorModulo = MathUtils.floorModulo(getElapsedCyclicYears() + 1, 60);
+        return CyclicYear.of(iFloorModulo != 0 ? iFloorModulo : 60);
+    }
+}

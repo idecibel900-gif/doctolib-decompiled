@@ -1,0 +1,54 @@
+package com.facebook.react;
+
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class R$string {
+    public static int alert_description = 2131951646;
+    public static int catalyst_change_bundle_location = 2131951673;
+    public static int catalyst_change_bundle_location_apply = 2131951674;
+    public static int catalyst_change_bundle_location_cancel = 2131951675;
+    public static int catalyst_change_bundle_location_input_hint = 2131951676;
+    public static int catalyst_change_bundle_location_input_label = 2131951677;
+    public static int catalyst_change_bundle_location_instructions = 2131951678;
+    public static int catalyst_debug_open = 2131951682;
+    public static int catalyst_debug_open_disabled = 2131951683;
+    public static int catalyst_dev_menu_header = 2131951684;
+    public static int catalyst_dev_menu_sub_header = 2131951685;
+    public static int catalyst_hot_reloading = 2131951688;
+    public static int catalyst_hot_reloading_auto_disable = 2131951689;
+    public static int catalyst_hot_reloading_auto_enable = 2131951690;
+    public static int catalyst_hot_reloading_stop = 2131951691;
+    public static int catalyst_inspector_toggle = 2131951692;
+    public static int catalyst_loading_from_url = 2131951693;
+    public static int catalyst_open_debugger_error = 2131951694;
+    public static int catalyst_perf_monitor = 2131951695;
+    public static int catalyst_perf_monitor_stop = 2131951696;
+    public static int catalyst_performance_background = 2131951697;
+    public static int catalyst_performance_cdp = 2131951698;
+    public static int catalyst_performance_disable = 2131951699;
+    public static int catalyst_performance_disabled = 2131951700;
+    public static int catalyst_performance_enable = 2131951701;
+    public static int catalyst_reload = 2131951702;
+    public static int catalyst_reload_error = 2131951704;
+    public static int catalyst_settings = 2131951707;
+    public static int catalyst_settings_title = 2131951708;
+    public static int combobox_description = 2131951715;
+    public static int image_description = 2131952032;
+    public static int imagebutton_description = 2131952033;
+    public static int link_description = 2131952039;
+    public static int menu_description = 2131952149;
+    public static int menubar_description = 2131952150;
+    public static int menuitem_description = 2131952151;
+    public static int progressbar_description = 2131952248;
+    public static int radiogroup_description = 2131952251;
+    public static int react_native_dev_server_ip = 2131952254;
+    public static int rn_tab_description = 2131952259;
+    public static int scrollbar_description = 2131952263;
+    public static int spinbutton_description = 2131952275;
+    public static int state_busy_description = 2131952276;
+    public static int state_mixed_description = 2131952280;
+    public static int state_unselected_description = 2131952285;
+    public static int summary_description = 2131952288;
+    public static int tablist_description = 2131952291;
+    public static int timer_description = 2131952296;
+    public static int toolbar_description = 2131952297;
+}

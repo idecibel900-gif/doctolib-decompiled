@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/didomi_vendors_item_height"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+    <TextView
+        android:id="@+id/text_vendor_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:lineSpacingExtra="0sp"
+        android:layout_marginEnd="4dp"
+        style="@style/DidomiTextSmall"/>
+    <io.didomi.ssl.view.mobile.DidomiToggle
+        android:id="@+id/toggle_vendor_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_vendor_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        app:srcCompat="@drawable/didomi_ic_small_arrow"/>
+</LinearLayout>

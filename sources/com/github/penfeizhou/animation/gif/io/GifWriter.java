@@ -1,0 +1,35 @@
+package com.github.penfeizhou.animation.gif.io;
+
+import com.github.penfeizhou.animation.io.Writer;
+import java.nio.IntBuffer;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class GifWriter implements Writer {
+    protected IntBuffer intBuffer;
+
+    @Override // com.github.penfeizhou.animation.io.Writer
+    public void close() {
+    }
+
+    public GifWriter() {
+        reset(10240);
+    }
+
+    public void reset(int i) {
+        IntBuffer intBuffer = this.intBuffer;
+        if (intBuffer == null || i > intBuffer.capacity()) {
+            this.intBuffer = IntBuffer.allocate(i);
+        }
+        this.intBuffer.clear();
+        this.intBuffer.limit(i);
+        this.intBuffer.position(0);
+    }
+
+    public int[] asIntArray() {
+        return this.intBuffer.array();
+    }
+
+    public IntBuffer asBuffer() {
+        return this.intBuffer;
+    }
+}

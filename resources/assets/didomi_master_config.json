@@ -1,0 +1,371 @@
+{
+    "languages": {
+        "available": [
+            "az-AZ",
+            "ar",
+            "ar-JO",
+            "bg",
+            "bn-IN",
+            "ca",
+            "cs",
+            "da",
+            "de",
+            "de-AT",
+            "de-CH",
+            "el",
+            "en",
+            "en-GB",
+            "en-NZ",
+            "es",
+            "et",
+            "fi",
+            "fil",
+            "fr",
+            "fr-BE",
+            "fr-CA",
+            "he",
+            "hi-IN",
+            "hr",
+            "hu",
+            "id",
+            "it",
+            "ja",
+            "ko",
+            "lt",
+            "lv",
+            "mk-MK",
+            "ms",
+            "nl",
+            "nl-BE",
+            "no",
+            "pl",
+            "pt-BR",
+            "pt-PT",
+            "ro",
+            "ru",
+            "sk",
+            "sl",
+            "sr",
+            "sv",
+            "sw",
+            "th",
+            "tr",
+            "uk",
+            "vi",
+            "zh-CN",
+            "zh-TW"
+        ],
+        "default": "en",
+        "defaultCountries": {
+            "pt": "PT",
+            "az": "AZ",
+            "bn": "IN",
+            "hi": "IN",
+            "mk": "MK",
+            "zh": "CN"
+        },
+        "fallbackCodes": {
+            "nb": "no",
+            "iw": "he",
+            "in": "id"
+        }
+    },
+    "purposes": [
+        {
+            "id": "cookies",
+            "iabId": "1"
+        },
+        {
+            "id": "select_basic_ads",
+            "iabId": "2"
+        },
+        {
+            "id": "create_ads_profile",
+            "iabId": "3"
+        },
+        {
+            "id": "select_personalized_ads",
+            "iabId": "4"
+        },
+        {
+            "id": "create_content_profile",
+            "iabId": "5"
+        },
+        {
+            "id": "select_personalized_content",
+            "iabId": "6"
+        },
+        {
+            "id": "measure_ad_performance",
+            "iabId": "7"
+        },
+        {
+            "id": "measure_content_performance",
+            "iabId": "8"
+        },
+        {
+            "id": "market_research",
+            "iabId": "9"
+        },
+        {
+            "id": "improve_products",
+            "iabId": "10"
+        },
+        {
+            "id": "use_limited_data_to_select_content",
+            "iabId": "11"
+        }
+    ],
+    "specialFeatures": [
+        {
+            "id": "geolocation_data",
+            "iabId": "1"
+        },
+        {
+            "id": "device_characteristics",
+            "iabId": "2"
+        }
+    ],
+    "vendors": [
+        {
+            "id": "amazon",
+            "name": "Amazon",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://aps.amazon.com/aps/privacy-policy/index.html",
+            "namespace": "didomi"
+        },
+        {
+            "id": "facebook",
+            "name": "Facebook",
+            "purposeIds": [
+                "cookies",
+                "create_ads_profile",
+                "select_personalized_ads"
+            ],
+            "legIntPurposeIds": [
+                "select_basic_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "policyUrl": "https://www.facebook.com/policy.php",
+            "namespace": "didomi"
+        },
+        {
+            "id": "twitter",
+            "name": "Twitter",
+            "purposeIds": [
+                "cookies"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://twitter.com/privacy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "whatsapp",
+            "name": "Whatsapp",
+            "purposeIds": [
+                "cookies"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://www.whatsapp.com/legal/#privacy-policy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "google",
+            "name": "Google",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://policies.google.com/privacy",
+            "namespace": "didomi",
+            "namespaces": {
+                "iab2": "755"
+            }
+        },
+        {
+            "id": "google-adsense",
+            "name": "Google Adsense",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://policies.google.com/privacy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "google-adx",
+            "name": "Google Adx",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://policies.google.com/privacy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "google-dfp",
+            "name": "Google DFP",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://policies.google.com/privacy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "addthis",
+            "name": "AddThis",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "http://www.addthis.com/privacy",
+            "namespace": "didomi"
+        },
+        {
+            "id": "teemo",
+            "name": "Teemo",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "iabId": "124",
+            "legIntPurposeIds": [],
+            "policyUrl": "https://teemo.co/privacy/",
+            "namespace": "didomi"
+        },
+        {
+            "id": "salesforce",
+            "name": "Salesforce",
+            "purposeIds": [
+                "cookies",
+                "select_basic_ads",
+                "create_ads_profile",
+                "select_personalized_ads",
+                "create_content_profile",
+                "select_personalized_content",
+                "measure_ad_performance",
+                "measure_content_performance",
+                "market_research",
+                "improve_products"
+            ],
+            "legIntPurposeIds": [],
+            "policyUrl": "https://www.salesforce.com/company/privacy/",
+            "namespace": "didomi"
+        }
+    ],
+    "gdprCountryCodes": [
+        "AD",
+        "AT",
+        "BE",
+        "BG",
+        "CY",
+        "CZ",
+        "DE",
+        "DK",
+        "EE",
+        "EL",
+        "ES",
+        "FI",
+        "FR",
+        "GB",
+        "GF",
+        "GG",
+        "GI",
+        "GP",
+        "GR",
+        "HR",
+        "HU",
+        "JE",
+        "IE",
+        "IT",
+        "LI",
+        "LT",
+        "LU",
+        "LV",
+        "MC",
+        "MF",
+        "MT",
+        "MQ",
+        "NL",
+        "PL",
+        "PT",
+        "RE",
+        "RO",
+        "SE",
+        "SI",
+        "SK",
+        "SM",
+        "VA",
+        "YT"
+    ]
+}

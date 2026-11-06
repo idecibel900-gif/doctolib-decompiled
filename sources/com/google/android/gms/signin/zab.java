@@ -1,0 +1,22 @@
+package com.google.android.gms.signin;
+
+import android.content.Context;
+import android.os.Looper;
+import android.support.v4.media.session.MediaControllerCompat$MediaControllerImplApi21$ExtraBinderRequestResultReceiver$$ExternalSyntheticThrowCCEIfNotNull0;
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.internal.ClientSettings;
+import com.google.android.gms.signin.internal.SignInClientImpl;
+
+/* JADX INFO: loaded from: classes3.dex */
+final class zab extends Api.AbstractClientBuilder {
+    zab() {
+    }
+
+    @Override // com.google.android.gms.common.api.Api.AbstractClientBuilder
+    public final /* bridge */ /* synthetic */ Api.Client buildClient(Context context, Looper looper, ClientSettings clientSettings, Object obj, GoogleApiClient.ConnectionCallbacks connectionCallbacks, GoogleApiClient.OnConnectionFailedListener onConnectionFailedListener) {
+        MediaControllerCompat$MediaControllerImplApi21$ExtraBinderRequestResultReceiver$$ExternalSyntheticThrowCCEIfNotNull0.m(obj);
+        int i = SignInClientImpl.$r8$clinit;
+        throw null;
+    }
+}

@@ -1,0 +1,36 @@
+package com.facebook.imagepipeline.producers;
+
+import com.facebook.imagepipeline.image.EncodedImage;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class AddImageTransformMetaDataProducer implements Producer {
+    private final Producer mInputProducer;
+
+    public AddImageTransformMetaDataProducer(Producer producer) {
+        this.mInputProducer = producer;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.Producer
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+        this.mInputProducer.produceResults(new AddImageTransformMetaDataConsumer(consumer), producerContext);
+    }
+
+    private static class AddImageTransformMetaDataConsumer extends DelegatingConsumer {
+        private AddImageTransformMetaDataConsumer(Consumer consumer) {
+            super(consumer);
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.facebook.imagepipeline.producers.BaseConsumer
+        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+            if (encodedImage == null) {
+                getConsumer().onNewResult(null, i);
+                return;
+            }
+            if (!EncodedImage.isMetaDataAvailable(encodedImage)) {
+                encodedImage.parseMetaData();
+            }
+            getConsumer().onNewResult(encodedImage, i);
+        }
+    }
+}

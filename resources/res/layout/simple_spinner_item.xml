@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.reactnativecommunity.picker.TextViewImpl xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ellipsize="end"
+    android:id="@android:id/text1"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    style="?android:attr/spinnerItemStyle"/>

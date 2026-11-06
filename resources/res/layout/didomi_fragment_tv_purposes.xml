@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/didomi_tv_background_a"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <io.didomi.ssl.view.ctv.FocusContainer
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_ctv_purpose"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"/>
+    </io.didomi.ssl.view.ctv.FocusContainer>
+    <View
+        android:layout_gravity="bottom"
+        android:background="@drawable/didomi_tv_purposes_gradient_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/didomi_tv_preferences_foreground_height_default"/>
+</FrameLayout>

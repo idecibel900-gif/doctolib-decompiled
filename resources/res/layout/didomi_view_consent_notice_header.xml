@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_gravity="end"
+        android:id="@+id/button_notice_header_disagree_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/DidomiCloseNoticeLink"/>
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_gravity="end"
+        android:id="@+id/button_notice_header_disagree_cross"
+        android:background="@android:color/transparent"
+        android:padding="4dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/didomi_ic_round_close_24px"/>
+</FrameLayout>
